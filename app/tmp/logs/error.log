@@ -6470,3 +6470,6 @@
 2012-11-27 10:16:33 Error: [MissingControllerException] Controller class ImagesController could not be found.
 #0 C:\xampp\htdocs\build3A\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2012-11-27 10:19:53 Error: [MissingControllerException] Controller class ImagesController could not be found.
+#0 C:\xampp\htdocs\build3A\app\webroot\index.php(92): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
