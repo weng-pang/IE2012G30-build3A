@@ -1,0 +1,132 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 3.5.2
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Oct 18, 2012 at 05:50 PM
+-- Server version: 5.5.25a
+-- PHP Version: 5.4.4
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `fit-ie-s30a`
+--
+
+DELIMITER $$
+--
+-- Procedures
+--
+DROP PROCEDURE IF EXISTS `test_multi_sets`$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `test_multi_sets`()
+    DETERMINISTIC
+begin
+        select user() as first_col;
+        select user() as first_col, now() as second_col;
+        select user() as first_col, now() as second_col, now() as third_col;
+        end$$
+
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+DROP TABLE IF EXISTS `jobs`;
+CREATE TABLE IF NOT EXISTS `jobs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(100) NOT NULL,
+  `client_name` varchar(40) NOT NULL,
+  `phone` varchar(11) DEFAULT NULL,
+  `type` varchar(40) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `progress` varchar(40) DEFAULT NULL,
+  `technician` varchar(40) DEFAULT NULL,
+  `user_name` text NOT NULL,
+  `open_date` date DEFAULT NULL,
+  `due_date` date DEFAULT NULL,
+  `closed_date` date DEFAULT NULL,
+  `note_customer` text,
+  `note_solve` text,
+  `job_priority` varchar(100) NOT NULL,
+  `metadata` varchar(2000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=132563 ;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `order_id`, `client_name`, `phone`, `type`, `created`, `progress`, `technician`, `user_name`, `open_date`, `due_date`, `closed_date`, `note_customer`, `note_solve`, `job_priority`, `metadata`) VALUES
+(132556, 0, 'Monash University Clayton', '+6139905464', 'New Connection', '2012-08-11 11:22:31', 'Pending Approval', 'Michael', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '', NULL),
+(132557, 0, 'Monash University Caulfield', '+6139905475', 'Phone Replacement', '2012-08-18 00:00:00', 'Ugrent', 'Michael', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '', NULL),
+(132558, 0, 'Crown', '+6139378354', 'Fault', '2012-08-16 00:00:00', 'At service', 'Weng', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '', NULL),
+(132559, 0, 'Monash Uni Clayton', '+6139905464', 'Handset Upgrade', '2012-08-17 00:00:00', 'Approved', 'Chris', '', '0000-00-00', '0000-00-00', '0000-00-00', '', '', '', NULL),
+(132560, 0, 'sdfsdf', 'sdfsdf', 'Mobile Phone Repair', '2012-10-18 08:53:32', NULL, NULL, 'helpdesk', NULL, NULL, NULL, NULL, NULL, '', '<h3>Customer Information</h3>\r\n								<p>COMPANY NAME: fddgdfg</p>\r\n								<p>CONTACT NAME: sdfsdf</p>\r\n								<p>CONTACT NUMBER: sdfsdf</p>\r\n								<p>EMAIL ADDRESS: weng.pang@gmail.com</p>\r\n								<p>ADDRESS: sdfsdfsdf</p>\r\n								<h3>Mobile Phone Details</h3>\r\n								<p>MAKE: sdfsdf</p>\r\n								<p>MODEL: sdfdsf</p>\r\n								<p>IMEI NUMBER: 51834315</p>\r\n								<p>ACCESSORIES: sdfsdf</p>\r\n								<p>FAULT DETAILS: dfsfd</p>\r\n								<p>PURCHASE INVOICE NUMBER: </p>\r\n								<p>CAP PRICE: </p>\r\n								'),
+(132561, 0, 'sdfsdf', 'sdfsdf', 'Mobile Phone Repair', '2012-10-18 09:23:17', NULL, NULL, 'helpdesk', NULL, NULL, NULL, NULL, NULL, '', '<h3>Customer Information</h3>\r\n								<p>COMPANY NAME: fddgdfg</p>\r\n								<p>CONTACT NAME: sdfsdf</p>\r\n								<p>CONTACT NUMBER: sdfsdf</p>\r\n								<p>EMAIL ADDRESS: weng.pang@gmail.com</p>\r\n								<p>ADDRESS: sdfsdfsdf</p>\r\n								<h3>Mobile Phone Details</h3>\r\n								<p>MAKE: sdfsdf</p>\r\n								<p>MODEL: sdfdsf</p>\r\n								<p>IMEI NUMBER: 51834315</p>\r\n								<p>ACCESSORIES: sdfsdf</p>\r\n								<p>FAULT DETAILS: dfsfd</p>\r\n								<p>PURCHASE INVOICE NUMBER: </p>\r\n								<p>CAP PRICE: </p>\r\n								'),
+(132562, 0, 'sdfsdf', 'sdfsdf', 'Mobile Phone Repair', '2012-10-18 09:26:15', NULL, NULL, 'helpdesk', NULL, NULL, NULL, NULL, NULL, '', '<h3>Customer Information</h3>\r\n								<p>COMPANY NAME: fddgdfg</p>\r\n								<p>CONTACT NAME: sdfsdf</p>\r\n								<p>CONTACT NUMBER: sdfsdf</p>\r\n								<p>EMAIL ADDRESS: weng.pang@gmail.com</p>\r\n								<p>ADDRESS: sdfsdfsdf</p>\r\n								<h3>Mobile Phone Details</h3>\r\n								<p>MAKE: sdfsdf</p>\r\n								<p>MODEL: sdfdsf</p>\r\n								<p>IMEI NUMBER: 51834315</p>\r\n								<p>ACCESSORIES: sdfsdf</p>\r\n								<p>FAULT DETAILS: dfsfd</p>\r\n								<p>PURCHASE INVOICE NUMBER: </p>\r\n								<p>CAP PRICE: </p>\r\n								');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_notes`
+--
+
+DROP TABLE IF EXISTS `job_notes`;
+CREATE TABLE IF NOT EXISTS `job_notes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_id` int(11) NOT NULL,
+  `job_status_id` int(11) NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `note` varchar(100) DEFAULT NULL,
+  `private_note` varchar(100) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `job_statuses_job_notes_fk` (`job_status_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `job_notes`
+--
+
+INSERT INTO `job_notes` (`id`, `job_id`, `job_status_id`, `staff_id`, `note`, `private_note`, `created`) VALUES
+(1, 132556, 1, 2, 'public note', 'private note', '2012-10-18 15:25:24'),
+(2, 132556, 3, 3, 'another note', 'another private note', '2012-10-19 22:00:00'),
+(3, 132557, 1, 2, 'Not This one 132557', 'Not This one 132557', '2012-10-19 02:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_statuses`
+--
+
+DROP TABLE IF EXISTS `job_statuses`;
+CREATE TABLE IF NOT EXISTS `job_statuses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `job_status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `job_statuses`
+--
+
+INSERT INTO `job_statuses` (`id`, `job_status`) VALUES
+(1, 'New'),
+(2, 'On hold'),
+(3, 'In progress'),
+(4, 'Completed'),
+(5, 'Closed');
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `job_notes`
+--
+ALTER TABLE `job_notes`
+  ADD CONSTRAINT `job_statuses_job_notes_fk` FOREIGN KEY (`job_status_id`) REFERENCES `job_statuses` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

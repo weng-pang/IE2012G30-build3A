@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+
+#url-rewriting-warning {
+	display:none;
+}
+ul, li {
+	list-style-type:none;
+	margin: 12px 0;
+}
+li {
+	float:left;
+}
+/* References
+* Footer at bottom by Matthew James Taylor
+* http://matthewjamestaylor.com/blog/keeping-footers-at-the-bottom-of-the-page
+*/
+
+
+/* Main Element Composite Configuration goes here*/
+
+html,body {
+	margin:0;
+	padding:0;
+	height:100%;
+
+}
+
+html {
+	overflow-y: scroll;
+	
+}
+/* other non-essential CSS */
+#header p,#header h1 {	
+	margin:0;
+	padding:10px 0 0 10px;
+}
+#footer p {
+	margin:0;
+	padding:10px;
+}
+#body {
+	padding:10px;
+	padding-bottom:45px;
+	
+}
+/* Main elements*/
+#sidebar, #main {
+	/* Height of the footer with offsets*/
+	margin-bottom:50px;
+}
+
+/*container*/
+#container {
+	font-family: 'Orienta', sans-serif;
+	margin: 0 auto;
+	min-height:100%;
+	position:relative;
+	width: 1000px;
+	background: url('../img/html-back.png') repeat-y center top;
+}
+
+/*header*/
+#header {
+	background:#fff url('../img/header_920px.png') no-repeat top center;
+	background-position:center;
+	margin-left:30px;
+	padding:10px 10px 10px 10px;
+	width: 920px;
+	height:110px;
+}
+
+/*content*/
+#content {
+	/*background:#fff;*/
+	width: 980px;
+	padding:10px;
+	overflow: hidden;
+	position:relative;
+}
+#sidebar a {
+	text-decoration:none;
+	color:#fff;
+}
+#sidebar a:hover{
+	color:#f00;
+}
+#sidebar {
+	padding: 10px;
+	float: left;
+	width: 200px;
+	margin-left: -900px;
+	color:#fff;
+}
+#main {
+	padding: 10px;
+	padding-right: 0px;
+	float: left;
+	width: 680px;
+	margin-left: 240px;
+	font-size: 12px;
+}
+
+/*footer*/
+#footer {
+	position:absolute;
+	bottom:0;
+	margin-left:30px;
+	height:45px;   /* Height of the footer */
+	background:#aaa;
+	color:#777;
+	padding:10px;
+	width: 920px;
+}
+/** Notices and Errors **/
+
